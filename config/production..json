@@ -1,4 +1,3 @@
 {
-  "db": "mongodb://localhost/GeekFreaksTorrent",
-  "jwtPrivateKey": "SomePrivateKey"
+  "myEnvironment": "Production"
 }
