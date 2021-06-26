@@ -1,0 +1,30 @@
+extends layout
+
+block navbar 
+    include ./partials/navbar
+
+block content
+    .container 
+        .row.d-flex.align-items-center.justify-content-center.text-center.height-80
+            .col-12
+                h1.display-3 My Info
+
+                .card.border-dark.d-flex.align-items-center.justify-content-center.bg-light.w-50.m-auto
+                    .card-head.d-flex.align-items-center.justify-content-center.p-3 
+                        span.display-3.font-weight-bold=user.username
+
+                    .card-body.d-flex.align-items-center.justify-content-center.border-top.border-dark
+                        h6.font-weight-bold Email: 
+                            span.lead=user.email
+                        
+                        h6.font-weight-bold.ml-3 Gender: 
+                            span.lead=user.gender
+
+                    .card-end.pb-3.d-flex.align-items-center.justify-content-center
+                        a.btn-hero(href="/users/edituser") Edit My Info 
+                        a.btn-hero.ml-2(href="/users/changePassword") Change Password 
+
+                hr.border
+
+                a.btn-hero(href="/torrents/newtorrent") Add New Torrent
+                a.btn-hero.ml-2(href="/torrents/mytorrents") My Torrents

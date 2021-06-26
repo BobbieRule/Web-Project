@@ -1,0 +1,30 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  a.navbar-brand(href="/") GeekFreaks
+  button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+    span.navbar-toggler-icon
+
+  div.collapse.navbar-collapse#navbarSupportedContent
+    ul.navbar-nav.ml-auto
+      li.nav-item.mr-4
+        a.nav-link(href="/torrents/games") Games
+      li.nav-item.mr-4
+        a.nav-link(href="/torrents/movies") Movies
+      li.nav-item.mr-4
+        a.nav-link(href="/torrents/animes") Animes
+      li.nav-item.mr-4
+        a.nav-link(href="/torrents/books") Books
+
+      if !token
+        li.nav-item.mr-4
+          a.nav-link.btn.btn-outline-light.text-light.navbar-button(href="/users/signIn") Sign In / Sign Up
+
+      if token
+        li.nav-item.mr-4
+          a.nav-link.btn.btn-outline-light.text-light.navbar-button(href="/users/account")
+            span= username+" | Account"
+        li.nav-item.mr-4
+          a.nav-link.btn.btn-outline-light.text-light.navbar-button(href="/users/logout") Logout
+
+    form.form-inline.my-2.my-lg-0(action="/torrents/searched/", method="post") 
+      input.form-control.mr-sm-2(type="search", name="torrentSearch", placeholder="Search For Torrent ...",aria-label="Search")
+      button.btn.btn-outline-light.text-light.my-2.my-sm-0(type="submit") Search

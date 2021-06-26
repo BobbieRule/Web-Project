@@ -1,0 +1,35 @@
+extend layout
+
+block navbar 
+    include ./partials/navbar
+
+block content
+    .container.height-80.d-flex.align-items-center.justify-content-center
+        .row.align-items-center.justify-content-around.torrent-container
+            .col-sm-12.col-md-6
+                img.img-fluid.float-right.image-styling(src=singleTorrent.photo, alt="Image Missing")
+            
+            .col-sm-12.col-md-6
+                .card.border-dark.d-flex.align-items-center.justify-content-center.bg-light
+                    .card-head.d-flex.align-items-center.justify-content-center.p-3.text-center
+                        span.display-3.font-weight-bold=singleTorrent.title
+
+                    .card-body.d-flex.align-items-center.justify-content-center.border-top.border-dark
+                        h6.font-weight-bold Seeders: 
+                            span.lead=singleTorrent.seeders
+                        
+                        h6.font-weight-bold.ml-3 Leechers: 
+                            span.lead=singleTorrent.leechers
+                    
+                    .card-body.d-flex.align-items-center.justify-content-center.border-top.border-dark.text-center
+                        h6.font-weight-bold Downloads: 
+                            span.lead=singleTorrent.downloads
+                        
+                        h6.font-weight-bold.ml-3 Size: 
+                            span.lead=singleTorrent.size
+
+                        h6.font-weight-bold.ml-3 Uploader: 
+                            span.lead=singleTorrent.uploader
+
+                    .card-end.pb-3.d-flex.align-items-center.justify-content-center
+                        a.btn-hero.ml-2(href=singleTorrent.link) Download

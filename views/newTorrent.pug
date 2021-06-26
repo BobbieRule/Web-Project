@@ -1,0 +1,42 @@
+extends layout 
+
+block navbar 
+    include ./partials/navbar
+
+block content
+    if error
+        .alert.alert-danger(role="alert")
+            span=error
+
+    .container 
+        .row.d-flex.align-items-center.justify-content-center.text-center.height-80
+            .col-12
+                h1.display-3 New Torrent
+
+                form(action="/torrents/newtorrent", method="post") 
+                    .form-group.d-flex.align-items-center.justify-content-center.text-center
+                        input.w-50(type="text", class="form-control", name="title" placeholder="Torrent Title")
+
+                    .form-group.d-flex.align-items-center.justify-content-center.text-center
+                        input.w-50(type="text", class="form-control", name="link" placeholder="Torrent Link")
+                    
+                    .form-group.d-flex.align-items-center.justify-content-center.text-center
+                        input.w-50(type="text", class="form-control", name="photo" placeholder="Torrent Photo Link")
+
+                    .form-group.d-flex.align-items-center.justify-content-center.text-center
+                        input.w-25(type="text", class="form-control", name="sizeNo" placeholder="Torrent Size")
+                        select.form-select.select-styling.text-center.ml-1(aria-label="Default select example", name="sizeType")
+                            option(selected disabled) Size Type
+                            option(value="GB") GB
+                            option(value="MB") MB
+                            option(value="KB") KB
+
+                    .form-group.d-flex.align-items-center.justify-content-center.text-center
+                        select.form-select.select-styling.text-center(aria-label="Default select example", name="category")
+                            option(selected disabled) Select Category
+                            option(value="Games") Games
+                            option(value="Movies") Movies
+                            option(value="Animes") Animes
+                            option(value="Books") Books
+
+                    button.btn-hero(type="submit") Add Torrent

@@ -1,0 +1,56 @@
+extends layout
+
+block content
+  .container
+    .row 
+      .col-12.d-flex.align-items-center.justify-content-end.text-center.mt-3
+        if !token
+          a.btn-hero(href="/users/signIn") Sign In / Sign Up
+        if token
+          a.btn-hero(href="/users/account") 
+            span= username+" | Account"
+          a.btn-hero.ml-2(href="/users/logout") Logout
+
+    .row.mt-3
+      .col-12.d-flex.align-items-center.justify-content-center.text-center
+        h1.display-1 Geek Freaks Torrent
+
+    .row.mt-3
+      .col-12
+        form(action="/torrents/searched/", method="post") 
+          .form-group.d-flex.align-items-center.justify-content-center.text-center
+            input.w-50(type="text", class="form-control", name="torrentSearch", placeholder="Search For Torrent ...")
+            button.btn-hero.m-1(type="submit") Search
+
+    .row.mt-3
+      .col-12.col-md-3.mt-2
+        .card.border-dark.d-flex.align-items-center.justify-content-center.bg-light
+          .card-head.d-flex.align-items-center.justify-content-center.p-3
+            i.fas.fa-gamepad.fa-3x.text-dark
+          .card-body.d-flex.align-items-center.justify-content-center.border-top.border-dark
+            a.btn-hero.text-center(href="/torrents/games") 
+              span.card-title Games
+
+      .col-12.col-md-3.mt-2
+        .card.border-dark.d-flex.align-items-center.justify-content-center.bg-light
+          .card-head.d-flex.align-items-center.justify-content-center.p-3
+            i.fas.fa-film.fa-3x.text-dark
+          .card-body.d-flex.align-items-center.justify-content-center.border-top.border-dark
+            a.btn-hero.text-center(href="/torrents/movies") 
+              span.card-title Movies
+
+      .col-12.col-md-3.mt-2
+        .card.border-dark.d-flex.align-items-center.justify-content-center.bg-light
+          .card-head.d-flex.align-items-center.justify-content-center.p-3
+            i.fas.fa-user-ninja.fa-3x.text-dark
+          .card-body.d-flex.align-items-center.justify-content-center.border-top.border-dark
+            a.btn-hero.text-center(href="/torrents/animes") 
+              span.card-title Animes
+
+      .col-12.col-md-3.mt-2
+        .card.border-dark.d-flex.align-items-center.justify-content-center.bg-light
+          .card-head.d-flex.align-items-center.justify-content-center.p-3
+            i.fas.fa-book.fa-3x.text-dark
+          .card-body.d-flex.align-items-center.justify-content-center.border-top.border-dark
+            a.btn-hero.text-center(href="/torrents/books") 
+              span.card-title Books

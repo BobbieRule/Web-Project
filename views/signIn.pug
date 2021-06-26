@@ -1,0 +1,26 @@
+extends layout
+
+block navbar 
+    include ./partials/navbar
+
+block content 
+    if error
+        .alert.alert-danger(role="alert")
+            span=error
+
+    .container
+        .row.d-flex.align-items-center.justify-content-center.text-center.height-80
+            .col-12
+                h1.display-3 Sign In 
+
+                form(action="/users/signIn", method="post") 
+                    .form-group.d-flex.align-items-center.justify-content-center.text-center
+                        input.w-50(type="text", class="form-control", name="email", placeholder="Enter Email")
+
+                    .form-group.d-flex.align-items-center.justify-content-center.text-center
+                        input.w-50(type="password", class="form-control", name="password", placeholder="Enter Password")
+
+                    .form-group.d-flex.align-items-center.justify-content-center.text-center
+                        a.link-styling(href="/users/signUp") Does not have an account | Create one now 
+
+                    button.btn-hero(type="submit") Log In

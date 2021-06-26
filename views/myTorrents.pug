@@ -1,0 +1,42 @@
+extends layout 
+
+block navbar 
+    include ./partials/navbar
+
+block content
+    if message
+        .alert.alert-warning(role="alert")
+            span=message
+
+    .container
+        .row 
+            .col-12
+                h1 My Torrents
+
+        .row 
+            .col-12 
+                table.table.table-striped.table-responsive-md
+                    thead.thead-dark
+                        tr 
+                            th Title 
+                            th Uploader 
+                            th Seeders
+                            th Leechers
+                            th Size
+                            th Category
+                            th Actions
+                    tbody
+                        each torrent in torrentsList
+                            tr 
+                                td
+                                    a.link-styling(href="/torrents/id/"+torrent._id)=torrent.title
+                                td=torrent.uploader
+                                td=torrent.seeders
+                                td=torrent.leechers
+                                td=torrent.size
+                                td=torrent.category
+                                td 
+                                    a.edit-btn(href="/torrents/mytorrents/edit/"+torrent._id)
+                                        i.fas.fa-pencil-alt.p-1
+                                    a.ml-1.delete-btn(href="/torrents/delete/"+torrent._id)
+                                        i.fas.fa-ban.p-1

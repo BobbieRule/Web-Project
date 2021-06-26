@@ -1,0 +1,33 @@
+extends layout
+
+block navbar 
+    include ./partials/navbar
+
+block content
+    .container
+        .row 
+            .col-12
+                h1 List of Torrents
+        
+        .row
+            .col-12
+                table.table.table-striped.table-responsive-md
+                    thead.thead-dark
+                        tr 
+                            th Title 
+                            th Uploader 
+                            th Seeders
+                            th Leechers
+                            th Size
+                            th Category
+                    tbody
+                        each torrent in torrentsList
+                            tr 
+                                td
+                                    a.link-styling(href="/torrents/id/"+torrent._id)=torrent.title
+                                td
+                                    a.link-styling(href="/torrents/uploader/"+torrent.uploader)=torrent.uploader
+                                td=torrent.seeders
+                                td=torrent.leechers
+                                td=torrent.size
+                                td=torrent.category
